@@ -1,13 +1,75 @@
-Configurar o TS na aplicação
-   yarn add typescript -D
+Dia 1:
+   Configurar o TS na aplicação:
+      yarn add typescript -D
 
-   yarn tsc --init
+      yarn tsc --init
 
-   yarn add ts-node-dev -D
+      yarn add ts-node-dev -D
 
-   package.json
-      "scripts": {
-         "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
-      }
+      package.json
+         "scripts": {
+            "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
+         }
 
-   
+Dia 2:
+   Instalar TypeORM:
+      yarn add typeorm reflect-metadata
+      (Vamos utilizar o sqlite3, e no "type" no ormconfig é "sqlite", mesmo utilizando o sqlite3)
+
+      Criar o ormconfig.json
+
+      Criar pasta 'database' e index.ts, que tem o createConnection
+      Importar o reflect-metadata no arquivo principal 
+
+      Criar migration
+         Criar script 
+         Criar pasta 'migrations' em database
+         yarn typeorm migration:create -n <NomeDaMigration>
+
+         yarn typeorm migration:run
+
+      Criar controllers
+
+      Criar routes.ts
+
+      Criar models
+
+Dia 3:
+   Isolar o repository do controller, pois não é bacana o controller ter acesso ao BD e fazer tais ações
+
+   Criar migration, model, repository e controller para surveys
+
+   Testes automatizados:
+      1 - Testes unitários (testes de determinadas funções da aplicação).
+         Geralmente se faz utilizando TDD
+      
+      2 - Testes de integração
+         -> request -> routes -> controller -> repository
+         <- repository <- controller <- response
+
+      3 - Ponta a Ponta (E2E(End to End)) Mais utilizado quando se trabalha também com aplicações front end
+
+      Para aplicações back end, se preocupa mais com os testes 1 e 2.
+
+      Iniciando o desenvolvimento dos testes:
+         yarn add jest @types/jest -D
+         yarn jest --init
+            Repostas: Y -> Y -> Node -> N -> v8 -> Y (É possível alterar depois de ter criado)
+         yarn add ts-jest -D
+
+         Ex: First.test.ts
+         describe("First", () => {
+            // Para criar um teste, usar a função it()
+            it("deve ser possível somar 2 númeos", () => {
+               expect(2 + 2).toBe(4);
+            })   
+          })
+
+         Supertest serve para simular um servidor para realizar os testes
+         yarn add supertest @types/supertest -D
+
+         Para não utilizarmos o mesmo BD para testes, é melhor utilizar um BD estratégico, apenas para testes
+
+         Alterar o index.ts em /database
+
+         
