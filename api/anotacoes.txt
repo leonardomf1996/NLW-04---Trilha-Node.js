@@ -72,4 +72,26 @@ Dia 3:
 
          Alterar o index.ts em /database
 
-         
+Dia 4:
+   Migration de surveysUsers e envio de emails
+
+      yarn typeorm migration:create -n CreateSurveysUsers
+      yarn typeorm migration:run
+
+      Criar model, repository, controller (SurveysUserController é o SendMailController)
+
+   Desenvolver o envio de email (Nodemailer)
+      Precisamos de um SMTP para trabalhar com o email, e utilizaremos o Ethereal, que cria serviços SMTP fakes
+
+      yarn add nodemailer
+      yarn add @types/nodemailer -D
+      pasta /services terá todo o processo de serviço de envio de email
+
+      rota /sendMail dando erro na hora de enviar o email (verificar na comunidade)
+
+      Para fazer a customização do email, utilizaremos o Handlebars
+      yarn add handlebars
+      Criar pasta /views
+      
+      Criar mapeamento nos models
+      
