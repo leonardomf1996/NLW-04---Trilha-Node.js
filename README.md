@@ -19,7 +19,7 @@ Foi desenvolvido uma API para NPS (Net Promoter Score), com sistema de cadastram
 
 ```sh
 Clone este repositório
-Acesse a pasta do projeto e instale as dependências
+Acesse a pasta e instale as dependências
 yarn dev (ou npm dev)
 A API estará rodando na port 3333 (caso queira alterar, acesse o arquivo server.ts)
 ```
