@@ -95,3 +95,15 @@ Dia 4:
       
       Criar mapeamento nos models
       
+Dia 5:
+   Refatorar controller de envio de emails
+
+   Criar rota /answers/:value, que é a rota de resposta para quando o usuário dá uma nota
+
+   Criar controller para calculo de NPS
+
+   Criar validações
+
+   Refatorar testes e script
+
+   Criar classe global para erros
